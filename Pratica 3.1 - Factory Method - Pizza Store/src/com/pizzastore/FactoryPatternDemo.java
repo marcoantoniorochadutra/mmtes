@@ -6,10 +6,13 @@ import com.pizzastore.models.Pizza;
 public class FactoryPatternDemo {
 	
 	public static void main(String[] args) {
-		PizzaFactory factory = new PizzaFactory();
-		Pizza p = factory.create("QUEIJO");
-		p.bake();
 		
+		PizzaStore store = new PizzaStore(new PizzaFactory());
+		Pizza p = store.orderPizza("QUEIJO");
+		p.prepare();
+		p.bake();
+		p.cut();
+		p.box();
 	}
 
 }
